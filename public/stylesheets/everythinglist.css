@@ -1,0 +1,53 @@
+#everythingList {
+	font-family: times, Times New Roman, times-roman, georgia, serif;
+	font-size: 124px;
+	line-height: 108px;
+	letter-spacing: 2px;
+	text-align:center;
+	color: #424242;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+    font-weight: 100;
+}
+
+p:first-letter{
+	text-transform: uppercase;
+}
+.listName {
+	font-family: times, Times New Roman, times-roman, georgia, serif;
+	letter-spacing:0.2em;
+	margin: 30px auto;
+	text-transform: lowercase;
+	line-height: 10%;
+	font-size: 20pt;
+	font-variant: small-caps;
+}
+
+.listDesc {
+	font-family: times, Times New Roman, times-roman, georgia, serif;
+	margin: 30px auto;
+	font-size: 16px;
+	line-height: 10%;
+	margin-top: .5em; 
+	letter-spacing: 0.1em;
+	color: #424242;
+}
+
+/* Text Box with Background Color: */
+.textbox {
+    border: 2px solid #424242;
+	font-family: times, Times New Roman, times-roman, georgia, serif;
+	font-size: 20px;
+	font-weight: bold;
+	font-variant: small-caps;
+	letter-spacing:0.2em;
+	height: 40px;
+    width: 400px;
+    padding-top:2px;
+}
+
+hr.hr2 {
+  color: #424242;
+  background-color: #424242;
+  height: 0.5px;
+}

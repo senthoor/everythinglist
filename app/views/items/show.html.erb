@@ -1,0 +1,48 @@
+<p>
+  <b>List:</b>
+  <%=h @item.list_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @item.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @item.description %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%=h @item.comment %>
+</p>
+
+<p>
+  <b>Completed at:</b>
+  <%=h @item.completed_at %>
+</p>
+
+<p>
+  <b>Completed:</b>
+  <%=h @item.completed %>
+</p>
+
+<p>
+  <b>Position:</b>
+  <%=h @item.position %>
+</p>
+
+<p>
+  <b>Created at:</b>
+  <%=h @item.created_at %>
+</p>
+
+<p>
+  <b>Updated at:</b>
+  <%=h @item.updated_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>

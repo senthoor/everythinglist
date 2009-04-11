@@ -1,0 +1,2 @@
+module EverythinglistHelper
+end

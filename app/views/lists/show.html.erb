@@ -1,0 +1,23 @@
+<p>
+  <b>Name:</b>
+  <%=h @list.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @list.description %>
+</p>
+
+<p>
+  <b>Created at:</b>
+  <%=h @list.created_at %>
+</p>
+
+<p>
+  <b>Updated at:</b>
+  <%=h @list.updated_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_list_path(@list) %> |
+<%= link_to 'Back', lists_path %>

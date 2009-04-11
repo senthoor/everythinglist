@@ -1,0 +1,2446 @@
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (93.4ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (430.8ms)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateLists (20090409012822)
+  [4;35;1mSQL (65.3ms)[0m   [0mCREATE TABLE `lists` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090409012822')[0m
+Migrating to CreateItems (20090409013545)
+  [4;35;1mSQL (54.6ms)[0m   [0mCREATE TABLE `items` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `list_id` int(11), `name` varchar(255), `description` text, `comment` text, `completed_at` datetime, `completed` tinyint(1), `position` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090409013545')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mdescribe `items`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `items`[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mdescribe `lists`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSHOW KEYS FROM `lists`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#index (for 127.0.0.1 at 2009-04-09 07:09:26) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering template within layouts/lists
+Rendering lists/index
+Completed in 62ms (View: 41, DB: 1) | 200 OK [http://localhost/lists]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2009-04-09 07:09:33) [GET]
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM `items` [0m
+Rendering template within layouts/items
+Rendering items/index
+Completed in 42ms (View: 22, DB: 1) | 200 OK [http://localhost/items]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#new (for 127.0.0.1 at 2009-04-09 07:09:36) [GET]
+  [4;36;1mItem Columns (2.8ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Rendering template within layouts/items
+Rendering items/new
+Completed in 548ms (View: 523, DB: 3) | 200 OK [http://localhost/items/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#index (for 127.0.0.1 at 2009-04-09 07:12:50) [GET]
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` [0m
+Rendering template within layouts/lists
+Rendering lists/index
+Completed in 103ms (View: 3, DB: 0) | 200 OK [http://localhost/lists]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#new (for 127.0.0.1 at 2009-04-09 07:12:52) [GET]
+  [4;36;1mList Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+Rendering template within layouts/lists
+Rendering lists/new
+Completed in 71ms (View: 46, DB: 3) | 200 OK [http://localhost/lists/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2009-04-09 07:13:15) [GET]
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM `items` [0m
+Rendering template within layouts/items
+Rendering items/index
+Completed in 44ms (View: 4, DB: 1) | 200 OK [http://localhost/items]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#new (for 127.0.0.1 at 2009-04-09 07:13:18) [GET]
+  [4;36;1mItem Columns (2.8ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Rendering template within layouts/items
+Rendering items/new
+Completed in 78ms (View: 53, DB: 3) | 200 OK [http://localhost/items/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2009-04-09 07:13:27) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"tJg6ay8OqER00bJ9WTuBon+w+i5iLTFZuODfqrEHJZs=", "item"=>{"updated_at(1i)"=>"2009", "position"=>"", "completed_at(5i)"=>"43", "comment"=>"", "name"=>"", "updated_at(2i)"=>"4", "created_at(1i)"=>"2009", "updated_at(3i)"=>"9", "created_at(2i)"=>"4", "completed"=>"0", "updated_at(4i)"=>"01", "created_at(3i)"=>"9", "updated_at(5i)"=>"43", "created_at(4i)"=>"01", "created_at(5i)"=>"43", "list_id"=>"", "completed_at(1i)"=>"2009", "completed_at(2i)"=>"4", "description"=>"", "completed_at(3i)"=>"9", "completed_at(4i)"=>"01"}}
+  [4;35;1mItem Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO `items` (`name`, `comment`, `completed_at`, `position`, `created_at`, `completed`, `updated_at`, `list_id`, `description`) VALUES('', '', '2009-04-09 01:43:00', NULL, '2009-04-09 01:43:00', 0, '2009-04-09 01:43:00', NULL, '')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/items/1
+Completed in 101ms (DB: 4) | 302 Found [http://localhost/items]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#show (for 127.0.0.1 at 2009-04-09 07:13:27) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mItem Columns (2.7ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mItem Load (36.7ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 1) [0m
+Rendering template within layouts/items
+Rendering items/show
+Completed in 83ms (View: 19, DB: 40) | 200 OK [http://localhost/items/1]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2009-04-09 07:13:39) [GET]
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM `items` [0m
+Rendering template within layouts/items
+Rendering items/index
+  [4;36;1mItem Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Completed in 36ms (View: 13, DB: 3) | 200 OK [http://localhost/items]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#destroy (for 127.0.0.1 at 2009-04-09 07:13:42) [DELETE]
+  Parameters: {"authenticity_token"=>"tJg6ay8OqER00bJ9WTuBon+w+i5iLTFZuODfqrEHJZs=", "id"=>"1"}
+  [4;35;1mItem Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mItem Load (0.3ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mItem Destroy (0.3ms)[0m   [0;1mDELETE FROM `items` WHERE `id` = 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/items
+Completed in 30ms (DB: 4) | 302 Found [http://localhost/items/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2009-04-09 07:13:42) [GET]
+  [4;36;1mItem Load (0.3ms)[0m   [0;1mSELECT * FROM `items` [0m
+Rendering template within layouts/items
+Rendering items/index
+Completed in 97ms (View: 3, DB: 1) | 200 OK [http://localhost/items]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#new (for 127.0.0.1 at 2009-04-09 07:17:48) [GET]
+  [4;36;1mItem Columns (56.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Rendering template within layouts/items
+Rendering items/new
+Completed in 379ms (View: 295, DB: 56) | 200 OK [http://localhost/items/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2009-04-09 07:17:50) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"tJg6ay8OqER00bJ9WTuBon+w+i5iLTFZuODfqrEHJZs=", "item"=>{"updated_at(1i)"=>"2009", "position"=>"", "completed_at(5i)"=>"47", "comment"=>"", "name"=>"", "updated_at(2i)"=>"4", "created_at(1i)"=>"2009", "updated_at(3i)"=>"9", "created_at(2i)"=>"4", "completed"=>"0", "updated_at(4i)"=>"01", "created_at(3i)"=>"9", "updated_at(5i)"=>"47", "created_at(4i)"=>"01", "created_at(5i)"=>"47", "list_id"=>"", "completed_at(1i)"=>"2009", "completed_at(2i)"=>"4", "description"=>"", "completed_at(3i)"=>"9", "completed_at(4i)"=>"01"}}
+  [4;35;1mItem Columns (2.9ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO `items` (`name`, `comment`, `completed_at`, `position`, `created_at`, `completed`, `updated_at`, `list_id`, `description`) VALUES('', '', '2009-04-09 01:47:00', NULL, '2009-04-09 01:47:00', 0, '2009-04-09 01:47:00', NULL, '')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/items/2
+Completed in 121ms (DB: 4) | 302 Found [http://localhost/items]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#show (for 127.0.0.1 at 2009-04-09 07:17:51) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mItem Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 2) [0m
+Rendering template within layouts/items
+Rendering items/show
+Completed in 42ms (View: 16, DB: 2) | 200 OK [http://localhost/items/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2009-04-09 07:17:53) [GET]
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM `items` [0m
+Rendering template within layouts/items
+Rendering items/index
+  [4;36;1mItem Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Completed in 44ms (View: 21, DB: 2) | 200 OK [http://localhost/items]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#destroy (for 127.0.0.1 at 2009-04-09 07:17:55) [DELETE]
+  Parameters: {"authenticity_token"=>"tJg6ay8OqER00bJ9WTuBon+w+i5iLTFZuODfqrEHJZs=", "id"=>"2"}
+  [4;35;1mItem Columns (2.8ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mItem Load (0.3ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mItem Destroy (0.3ms)[0m   [0;1mDELETE FROM `items` WHERE `id` = 2[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/items
+Completed in 30ms (DB: 4) | 302 Found [http://localhost/items/2]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2009-04-09 07:17:55) [GET]
+  [4;36;1mItem Load (0.3ms)[0m   [0;1mSELECT * FROM `items` [0m
+Rendering template within layouts/items
+Rendering items/index
+Completed in 24ms (View: 3, DB: 1) | 200 OK [http://localhost/items]
+  [4;36;1mSQL (135.5ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (18.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#index (for 127.0.0.1 at 2009-04-09 18:10:12) [GET]
+  [4;36;1mList Load (71.1ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering template within layouts/lists
+Rendering lists/index
+Completed in 252ms (View: 104, DB: 225) | 200 OK [http://localhost/lists]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2009-04-09 18:10:17) [GET]
+  [4;35;1mSQL (109.9ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mItem Columns (65.5ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mItem Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+
+NoMethodError (undefined method `validates_presense_of' for #<Class:0x17bd760>):
+  app/models/item.rb:3
+  app/controllers/items_controller.rb:5:in `index'
+
+Rendered rescues/_trace (156.1ms)
+Rendered rescues/_request_and_response (2.9ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2009-04-09 18:10:20) [GET]
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mItem Columns (2.9ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mItem Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+
+NoMethodError (undefined method `validates_presense_of' for #<Class:0x1956d24>):
+  app/models/item.rb:3
+  app/controllers/items_controller.rb:5:in `index'
+
+Rendered rescues/_trace (100.8ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-04-09 18:10:22) [GET]
+
+ActionController::RoutingError (No route matches "/item" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2009-04-09 18:10:24) [GET]
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mItem Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mItem Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+
+NoMethodError (undefined method `validates_presense_of' for #<Class:0x12249fc>):
+  app/models/item.rb:3
+  app/controllers/items_controller.rb:5:in `index'
+
+Rendered rescues/_trace (160.2ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2009-04-09 18:10:55) [GET]
+  [4;35;1mItem Load (21.4ms)[0m   [0mSELECT * FROM `items` [0m
+Rendering template within layouts/items
+Rendering items/index
+Completed in 89ms (View: 46, DB: 22) | 200 OK [http://localhost/items]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#new (for 127.0.0.1 at 2009-04-09 18:10:56) [GET]
+  [4;36;1mItem Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Rendering template within layouts/items
+Rendering items/new
+Completed in 556ms (View: 533, DB: 2) | 200 OK [http://localhost/items/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2009-04-09 18:10:59) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"wdjR/nnBRg1djE0lscpFHcAzQKNxDhrx5tbya6cjuTI=", "item"=>{"updated_at(1i)"=>"2009", "position"=>"", "completed_at(5i)"=>"40", "comment"=>"", "name"=>"", "updated_at(2i)"=>"4", "created_at(1i)"=>"2009", "updated_at(3i)"=>"9", "created_at(2i)"=>"4", "completed"=>"0", "updated_at(4i)"=>"12", "created_at(3i)"=>"9", "updated_at(5i)"=>"40", "created_at(4i)"=>"12", "created_at(5i)"=>"40", "list_id"=>"", "completed_at(1i)"=>"2009", "completed_at(2i)"=>"4", "description"=>"", "completed_at(3i)"=>"9", "completed_at(4i)"=>"12"}}
+  [4;35;1mItem Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+Rendering template within layouts/items
+Rendering items/new
+Completed in 84ms (View: 44, DB: 3) | 200 OK [http://localhost/items]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2009-04-09 18:11:03) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"wdjR/nnBRg1djE0lscpFHcAzQKNxDhrx5tbya6cjuTI=", "item"=>{"updated_at(1i)"=>"2009", "position"=>"", "completed_at(5i)"=>"40", "comment"=>"", "name"=>"", "updated_at(2i)"=>"4", "created_at(1i)"=>"2009", "updated_at(3i)"=>"9", "created_at(2i)"=>"4", "completed"=>"0", "updated_at(4i)"=>"12", "created_at(3i)"=>"9", "updated_at(5i)"=>"40", "created_at(4i)"=>"12", "created_at(5i)"=>"40", "list_id"=>"1", "completed_at(1i)"=>"2009", "completed_at(2i)"=>"4", "description"=>"", "completed_at(3i)"=>"9", "completed_at(4i)"=>"12"}}
+  [4;36;1mItem Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/items
+Rendering items/new
+Completed in 84ms (View: 44, DB: 3) | 200 OK [http://localhost/items]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2009-04-09 18:11:42) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"wdjR/nnBRg1djE0lscpFHcAzQKNxDhrx5tbya6cjuTI=", "item"=>{"updated_at(1i)"=>"2009", "position"=>"", "completed_at(5i)"=>"40", "comment"=>"", "name"=>"", "updated_at(2i)"=>"4", "created_at(1i)"=>"2009", "updated_at(3i)"=>"9", "created_at(2i)"=>"4", "completed"=>"0", "updated_at(4i)"=>"12", "created_at(3i)"=>"9", "updated_at(5i)"=>"40", "created_at(4i)"=>"12", "created_at(5i)"=>"40", "list_id"=>"1", "completed_at(1i)"=>"2009", "completed_at(2i)"=>"4", "description"=>"", "completed_at(3i)"=>"9", "completed_at(4i)"=>"12"}}
+  [4;35;1mItem Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mItem Create (56.1ms)[0m   [0mINSERT INTO `items` (`name`, `comment`, `completed_at`, `position`, `created_at`, `completed`, `updated_at`, `list_id`, `description`) VALUES('', '', '2009-04-09 12:40:00', NULL, '2009-04-09 12:40:00', 0, '2009-04-09 12:40:00', 1, '')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/items/3
+Completed in 153ms (DB: 59) | 302 Found [http://localhost/items]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#show (for 127.0.0.1 at 2009-04-09 18:11:42) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mItem Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mItem Load (15.6ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 3) [0m
+Rendering template within layouts/items
+Rendering items/show
+Completed in 76ms (View: 35, DB: 17) | 200 OK [http://localhost/items/3]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#edit (for 127.0.0.1 at 2009-04-09 18:11:46) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mItem Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 3) [0m
+Rendering template within layouts/items
+Rendering items/edit
+Completed in 87ms (View: 63, DB: 3) | 200 OK [http://localhost/items/3/edit]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#show (for 127.0.0.1 at 2009-04-09 18:11:49) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mItem Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 3) [0m
+Rendering template within layouts/items
+Rendering items/show
+Completed in 33ms (View: 9, DB: 3) | 200 OK [http://localhost/items/3]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2009-04-09 18:11:50) [GET]
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM `items` [0m
+Rendering template within layouts/items
+Rendering items/index
+  [4;36;1mItem Columns (2.9ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Completed in 112ms (View: 16, DB: 4) | 200 OK [http://localhost/items]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#destroy (for 127.0.0.1 at 2009-04-09 18:11:55) [DELETE]
+  Parameters: {"authenticity_token"=>"wdjR/nnBRg1djE0lscpFHcAzQKNxDhrx5tbya6cjuTI=", "id"=>"3"}
+  [4;35;1mItem Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mItem Load (0.3ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 3) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mItem Destroy (34.9ms)[0m   [0;1mDELETE FROM `items` WHERE `id` = 3[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/items
+Completed in 63ms (DB: 38) | 302 Found [http://localhost/items/3]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2009-04-09 18:11:55) [GET]
+  [4;36;1mItem Load (0.3ms)[0m   [0;1mSELECT * FROM `items` [0m
+Rendering template within layouts/items
+Rendering items/index
+Completed in 24ms (View: 3, DB: 1) | 200 OK [http://localhost/items]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#new (for 127.0.0.1 at 2009-04-09 18:13:54) [GET]
+  [4;35;1mItem Columns (2.7ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendering template within layouts/items
+Rendering items/new
+Completed in 79ms (View: 53, DB: 3) | 200 OK [http://localhost/items/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2009-04-09 18:13:57) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"wdjR/nnBRg1djE0lscpFHcAzQKNxDhrx5tbya6cjuTI=", "item"=>{"updated_at(1i)"=>"2009", "position"=>"", "completed_at(5i)"=>"43", "comment"=>"", "name"=>"", "updated_at(2i)"=>"4", "created_at(1i)"=>"2009", "updated_at(3i)"=>"9", "created_at(2i)"=>"4", "completed"=>"0", "updated_at(4i)"=>"12", "created_at(3i)"=>"9", "updated_at(5i)"=>"43", "created_at(4i)"=>"12", "created_at(5i)"=>"43", "list_id"=>"", "completed_at(1i)"=>"2009", "completed_at(2i)"=>"4", "description"=>"", "completed_at(3i)"=>"9", "completed_at(4i)"=>"12"}}
+  [4;36;1mItem Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+
+NameError (uninitialized constant ItemsController::Product):
+  app/controllers/items_controller.rb:44:in `create'
+
+Rendered rescues/_trace (93.2ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2009-04-09 18:15:45) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"wdjR/nnBRg1djE0lscpFHcAzQKNxDhrx5tbya6cjuTI=", "item"=>{"updated_at(1i)"=>"2009", "position"=>"", "completed_at(5i)"=>"43", "comment"=>"", "name"=>"", "updated_at(2i)"=>"4", "created_at(1i)"=>"2009", "updated_at(3i)"=>"9", "created_at(2i)"=>"4", "completed"=>"0", "updated_at(4i)"=>"12", "created_at(3i)"=>"9", "updated_at(5i)"=>"43", "created_at(4i)"=>"12", "created_at(5i)"=>"43", "list_id"=>"", "completed_at(1i)"=>"2009", "completed_at(2i)"=>"4", "description"=>"", "completed_at(3i)"=>"9", "completed_at(4i)"=>"12"}}
+  [4;35;1mItem Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+
+ActiveRecord::RecordNotFound (Couldn't find List without an ID):
+  app/controllers/items_controller.rb:44:in `create'
+
+Rendered rescues/_trace (166.0ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2009-04-09 18:16:48) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"wdjR/nnBRg1djE0lscpFHcAzQKNxDhrx5tbya6cjuTI=", "item"=>{"updated_at(1i)"=>"2009", "position"=>"", "completed_at(5i)"=>"43", "comment"=>"", "name"=>"", "updated_at(2i)"=>"4", "created_at(1i)"=>"2009", "updated_at(3i)"=>"9", "created_at(2i)"=>"4", "completed"=>"0", "updated_at(4i)"=>"12", "created_at(3i)"=>"9", "updated_at(5i)"=>"43", "created_at(4i)"=>"12", "created_at(5i)"=>"43", "list_id"=>"", "completed_at(1i)"=>"2009", "completed_at(2i)"=>"4", "description"=>"", "completed_at(3i)"=>"9", "completed_at(4i)"=>"12"}}
+  [4;36;1mItem Columns (2.7ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mList Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find List with ID=):
+  app/controllers/items_controller.rb:44:in `create'
+
+Rendered rescues/_trace (88.8ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2009-04-09 18:16:58) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"wdjR/nnBRg1djE0lscpFHcAzQKNxDhrx5tbya6cjuTI=", "item"=>{"updated_at(1i)"=>"2009", "position"=>"", "completed_at(5i)"=>"43", "comment"=>"", "name"=>"", "updated_at(2i)"=>"4", "created_at(1i)"=>"2009", "updated_at(3i)"=>"9", "created_at(2i)"=>"4", "completed"=>"0", "updated_at(4i)"=>"12", "created_at(3i)"=>"9", "updated_at(5i)"=>"43", "created_at(4i)"=>"12", "created_at(5i)"=>"43", "list_id"=>"1", "completed_at(1i)"=>"2009", "completed_at(2i)"=>"4", "description"=>"", "completed_at(3i)"=>"9", "completed_at(4i)"=>"12"}}
+  [4;35;1mItem Columns (2.9ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mList Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find List with ID=1):
+  app/controllers/items_controller.rb:44:in `create'
+
+Rendered rescues/_trace (89.5ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#index (for 127.0.0.1 at 2009-04-09 18:17:08) [GET]
+  [4;36;1mList Load (0.2ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering template within layouts/lists
+Rendering lists/index
+Completed in 24ms (View: 3, DB: 0) | 200 OK [http://localhost/lists]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#new (for 127.0.0.1 at 2009-04-09 18:17:10) [GET]
+  [4;35;1mList Columns (2.7ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Rendering template within layouts/lists
+Rendering lists/new
+Completed in 173ms (View: 71, DB: 3) | 200 OK [http://localhost/lists/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#create (for 127.0.0.1 at 2009-04-09 18:17:30) [POST]
+  Parameters: {"list"=>{"updated_at(1i)"=>"2009", "name"=>"Senthoor's Plate", "updated_at(2i)"=>"4", "created_at(1i)"=>"2009", "updated_at(3i)"=>"9", "created_at(2i)"=>"4", "updated_at(4i)"=>"12", "created_at(3i)"=>"9", "updated_at(5i)"=>"47", "created_at(4i)"=>"12", "created_at(5i)"=>"47", "description"=>"Senthoor's Task List"}, "commit"=>"Create", "authenticity_token"=>"wdjR/nnBRg1djE0lscpFHcAzQKNxDhrx5tbya6cjuTI="}
+  [4;36;1mList Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mList Create (0.3ms)[0m   [0;1mINSERT INTO `lists` (`name`, `created_at`, `updated_at`, `description`) VALUES('Senthoor\'s Plate', '2009-04-09 12:47:00', '2009-04-09 12:47:00', 'Senthoor\'s Task List')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/lists/1
+Completed in 35ms (DB: 3) | 302 Found [http://localhost/lists]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-04-09 18:17:30) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+Completed in 56ms (View: 29, DB: 3) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2009-04-09 18:17:37) [GET]
+  [4;36;1mItem Load (0.3ms)[0m   [0;1mSELECT * FROM `items` [0m
+Rendering template within layouts/items
+Rendering items/index
+Completed in 23ms (View: 3, DB: 0) | 200 OK [http://localhost/items]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#new (for 127.0.0.1 at 2009-04-09 18:17:38) [GET]
+  [4;35;1mItem Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendering template within layouts/items
+Rendering items/new
+Completed in 75ms (View: 52, DB: 2) | 200 OK [http://localhost/items/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2009-04-09 18:18:04) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"wdjR/nnBRg1djE0lscpFHcAzQKNxDhrx5tbya6cjuTI=", "item"=>{"updated_at(1i)"=>"2009", "position"=>"", "completed_at(5i)"=>"47", "comment"=>"", "name"=>"Mail to Neeraj", "updated_at(2i)"=>"4", "created_at(1i)"=>"2009", "updated_at(3i)"=>"9", "created_at(2i)"=>"4", "completed"=>"0", "updated_at(4i)"=>"12", "created_at(3i)"=>"9", "updated_at(5i)"=>"47", "created_at(4i)"=>"12", "created_at(5i)"=>"47", "list_id"=>"1", "completed_at(1i)"=>"2009", "completed_at(2i)"=>"4", "description"=>"Send a mail to Neeraj about team performance", "completed_at(3i)"=>"9", "completed_at(4i)"=>"12"}}
+  [4;36;1mItem Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mList Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO `items` (`name`, `comment`, `completed_at`, `position`, `created_at`, `completed`, `updated_at`, `list_id`, `description`) VALUES('Mail to Neeraj', '', '2009-04-09 12:47:00', NULL, '2009-04-09 12:47:00', 0, '2009-04-09 12:47:00', 1, 'Send a mail to Neeraj about team performance')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/items/4
+Completed in 57ms (DB: 5) | 302 Found [http://localhost/items]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#show (for 127.0.0.1 at 2009-04-09 18:18:04) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mItem Columns (2.9ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 4) [0m
+Rendering template within layouts/items
+Rendering items/show
+Completed in 37ms (View: 10, DB: 3) | 200 OK [http://localhost/items/4]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#index (for 127.0.0.1 at 2009-04-09 18:19:09) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering template within layouts/lists
+Rendering lists/index
+  [4;35;1mList Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 40ms (View: 16, DB: 3) | 200 OK [http://localhost/lists]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2009-04-09 18:19:14) [GET]
+  [4;36;1mItem Load (0.3ms)[0m   [0;1mSELECT * FROM `items` [0m
+Rendering template within layouts/items
+Rendering items/index
+  [4;35;1mItem Columns (2.7ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Completed in 40ms (View: 17, DB: 3) | 200 OK [http://localhost/items]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#new (for 127.0.0.1 at 2009-04-09 18:19:17) [GET]
+  [4;36;1mItem Columns (2.7ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Rendering template within layouts/items
+Rendering items/new
+Completed in 80ms (View: 55, DB: 3) | 200 OK [http://localhost/items/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2009-04-09 18:19:21) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"wdjR/nnBRg1djE0lscpFHcAzQKNxDhrx5tbya6cjuTI=", "item"=>{"updated_at(1i)"=>"2009", "position"=>"", "completed_at(5i)"=>"49", "comment"=>"", "name"=>"", "updated_at(2i)"=>"4", "created_at(1i)"=>"2009", "updated_at(3i)"=>"9", "created_at(2i)"=>"4", "completed"=>"0", "updated_at(4i)"=>"12", "created_at(3i)"=>"9", "updated_at(5i)"=>"49", "created_at(4i)"=>"12", "created_at(5i)"=>"49", "list_id"=>"", "completed_at(1i)"=>"2009", "completed_at(2i)"=>"4", "description"=>"", "completed_at(3i)"=>"9", "completed_at(4i)"=>"12"}}
+  [4;35;1mItem Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mList Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.2ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find List with ID=):
+  app/controllers/items_controller.rb:44:in `create'
+
+Rendered rescues/_trace (89.2ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2009-04-09 18:21:54) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"wdjR/nnBRg1djE0lscpFHcAzQKNxDhrx5tbya6cjuTI=", "item"=>{"updated_at(1i)"=>"2009", "position"=>"", "completed_at(5i)"=>"49", "comment"=>"", "name"=>"", "updated_at(2i)"=>"4", "created_at(1i)"=>"2009", "updated_at(3i)"=>"9", "created_at(2i)"=>"4", "completed"=>"0", "updated_at(4i)"=>"12", "created_at(3i)"=>"9", "updated_at(5i)"=>"49", "created_at(4i)"=>"12", "created_at(5i)"=>"49", "list_id"=>"", "completed_at(1i)"=>"2009", "completed_at(2i)"=>"4", "description"=>"", "completed_at(3i)"=>"9", "completed_at(4i)"=>"12"}}
+  [4;36;1mItem Columns (2.9ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mList Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.2ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 0) [0m
+
+ActionView::MissingTemplate (Missing template items/create.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2009-04-09 18:22:06) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"wdjR/nnBRg1djE0lscpFHcAzQKNxDhrx5tbya6cjuTI=", "item"=>{"updated_at(1i)"=>"2009", "position"=>"", "completed_at(5i)"=>"49", "comment"=>"", "name"=>"", "updated_at(2i)"=>"4", "created_at(1i)"=>"2009", "updated_at(3i)"=>"9", "created_at(2i)"=>"4", "completed"=>"0", "updated_at(4i)"=>"12", "created_at(3i)"=>"9", "updated_at(5i)"=>"49", "created_at(4i)"=>"12", "created_at(5i)"=>"49", "list_id"=>"", "completed_at(1i)"=>"2009", "completed_at(2i)"=>"4", "description"=>"", "completed_at(3i)"=>"9", "completed_at(4i)"=>"12"}}
+  [4;35;1mItem Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mList Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.2ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 0) [0m
+
+ActionView::MissingTemplate (Missing template items/create.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2009-04-09 18:22:41) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"wdjR/nnBRg1djE0lscpFHcAzQKNxDhrx5tbya6cjuTI=", "item"=>{"updated_at(1i)"=>"2009", "position"=>"", "completed_at(5i)"=>"49", "comment"=>"", "name"=>"", "updated_at(2i)"=>"4", "created_at(1i)"=>"2009", "updated_at(3i)"=>"9", "created_at(2i)"=>"4", "completed"=>"0", "updated_at(4i)"=>"12", "created_at(3i)"=>"9", "updated_at(5i)"=>"49", "created_at(4i)"=>"12", "created_at(5i)"=>"49", "list_id"=>"", "completed_at(1i)"=>"2009", "completed_at(2i)"=>"4", "description"=>"", "completed_at(3i)"=>"9", "completed_at(4i)"=>"12"}}
+  [4;36;1mItem Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mList Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 0) [0m
+
+ArgumentError (too few arguments):
+  app/controllers/items_controller.rb:57:in `format'
+  app/controllers/items_controller.rb:57:in `create'
+
+Rendered rescues/_trace (164.7ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2009-04-09 18:22:41) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"wdjR/nnBRg1djE0lscpFHcAzQKNxDhrx5tbya6cjuTI=", "item"=>{"updated_at(1i)"=>"2009", "position"=>"", "completed_at(5i)"=>"49", "comment"=>"", "name"=>"", "updated_at(2i)"=>"4", "created_at(1i)"=>"2009", "updated_at(3i)"=>"9", "created_at(2i)"=>"4", "completed"=>"0", "updated_at(4i)"=>"12", "created_at(3i)"=>"9", "updated_at(5i)"=>"49", "created_at(4i)"=>"12", "created_at(5i)"=>"49", "list_id"=>"", "completed_at(1i)"=>"2009", "completed_at(2i)"=>"4", "description"=>"", "completed_at(3i)"=>"9", "completed_at(4i)"=>"12"}}
+  [4;35;1mItem Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mList Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 0) [0m
+
+ArgumentError (too few arguments):
+  app/controllers/items_controller.rb:57:in `format'
+  app/controllers/items_controller.rb:57:in `create'
+
+Rendered rescues/_trace (84.9ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2009-04-09 18:23:02) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"wdjR/nnBRg1djE0lscpFHcAzQKNxDhrx5tbya6cjuTI=", "item"=>{"updated_at(1i)"=>"2009", "position"=>"", "completed_at(5i)"=>"49", "comment"=>"", "name"=>"", "updated_at(2i)"=>"4", "created_at(1i)"=>"2009", "updated_at(3i)"=>"9", "created_at(2i)"=>"4", "completed"=>"0", "updated_at(4i)"=>"12", "created_at(3i)"=>"9", "updated_at(5i)"=>"49", "created_at(4i)"=>"12", "created_at(5i)"=>"49", "list_id"=>"", "completed_at(1i)"=>"2009", "completed_at(2i)"=>"4", "description"=>"", "completed_at(3i)"=>"9", "completed_at(4i)"=>"12"}}
+  [4;36;1mItem Columns (2.7ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mList Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 0) [0m
+
+ArgumentError (too few arguments):
+  app/controllers/items_controller.rb:57:in `format'
+  app/controllers/items_controller.rb:57:in `create'
+
+Rendered rescues/_trace (86.3ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2009-04-09 18:24:21) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"wdjR/nnBRg1djE0lscpFHcAzQKNxDhrx5tbya6cjuTI=", "item"=>{"updated_at(1i)"=>"2009", "position"=>"", "completed_at(5i)"=>"49", "comment"=>"", "name"=>"", "updated_at(2i)"=>"4", "created_at(1i)"=>"2009", "updated_at(3i)"=>"9", "created_at(2i)"=>"4", "completed"=>"0", "updated_at(4i)"=>"12", "created_at(3i)"=>"9", "updated_at(5i)"=>"49", "created_at(4i)"=>"12", "created_at(5i)"=>"49", "list_id"=>"", "completed_at(1i)"=>"2009", "completed_at(2i)"=>"4", "description"=>"", "completed_at(3i)"=>"9", "completed_at(4i)"=>"12"}}
+  [4;35;1mItem Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mList Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 0) [0m
+
+ArgumentError (too few arguments):
+  app/controllers/items_controller.rb:57:in `format'
+  app/controllers/items_controller.rb:57:in `create'
+
+Rendered rescues/_trace (164.4ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2009-04-09 18:24:58) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"wdjR/nnBRg1djE0lscpFHcAzQKNxDhrx5tbya6cjuTI=", "item"=>{"updated_at(1i)"=>"2009", "position"=>"", "completed_at(5i)"=>"49", "comment"=>"", "name"=>"", "updated_at(2i)"=>"4", "created_at(1i)"=>"2009", "updated_at(3i)"=>"9", "created_at(2i)"=>"4", "completed"=>"0", "updated_at(4i)"=>"12", "created_at(3i)"=>"9", "updated_at(5i)"=>"49", "created_at(4i)"=>"12", "created_at(5i)"=>"49", "list_id"=>"", "completed_at(1i)"=>"2009", "completed_at(2i)"=>"4", "description"=>"", "completed_at(3i)"=>"9", "completed_at(4i)"=>"12"}}
+  [4;36;1mItem Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mList Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 0) [0m
+
+ArgumentError (too few arguments):
+  app/controllers/items_controller.rb:57:in `format'
+  app/controllers/items_controller.rb:57:in `create'
+
+Rendered rescues/_trace (84.5ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2009-04-09 18:25:31) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"wdjR/nnBRg1djE0lscpFHcAzQKNxDhrx5tbya6cjuTI=", "item"=>{"updated_at(1i)"=>"2009", "position"=>"", "completed_at(5i)"=>"49", "comment"=>"", "name"=>"", "updated_at(2i)"=>"4", "created_at(1i)"=>"2009", "updated_at(3i)"=>"9", "created_at(2i)"=>"4", "completed"=>"0", "updated_at(4i)"=>"12", "created_at(3i)"=>"9", "updated_at(5i)"=>"49", "created_at(4i)"=>"12", "created_at(5i)"=>"49", "list_id"=>"", "completed_at(1i)"=>"2009", "completed_at(2i)"=>"4", "description"=>"", "completed_at(3i)"=>"9", "completed_at(4i)"=>"12"}}
+  [4;35;1mItem Columns (2.8ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mList Columns (3.2ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 0) [0m
+Rendering template within layouts/items
+Rendering items/new
+Completed in 101ms (View: 48, DB: 7) | 200 OK [http://localhost/items]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2009-04-09 18:25:40) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"wdjR/nnBRg1djE0lscpFHcAzQKNxDhrx5tbya6cjuTI=", "item"=>{"updated_at(1i)"=>"2009", "position"=>"", "completed_at(5i)"=>"49", "comment"=>"", "name"=>"", "updated_at(2i)"=>"4", "created_at(1i)"=>"2009", "updated_at(3i)"=>"9", "created_at(2i)"=>"4", "completed"=>"0", "updated_at(4i)"=>"12", "created_at(3i)"=>"9", "updated_at(5i)"=>"49", "created_at(4i)"=>"12", "created_at(5i)"=>"49", "list_id"=>"5", "completed_at(1i)"=>"2009", "completed_at(2i)"=>"4", "description"=>"", "completed_at(3i)"=>"9", "completed_at(4i)"=>"12"}}
+  [4;36;1mItem Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mList Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.2ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 5) [0m
+Rendering template within layouts/items
+Rendering items/new
+Completed in 93ms (View: 47, DB: 4) | 200 OK [http://localhost/items]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2009-04-09 18:29:33) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"wdjR/nnBRg1djE0lscpFHcAzQKNxDhrx5tbya6cjuTI=", "item"=>{"updated_at(1i)"=>"2009", "position"=>"", "completed_at(5i)"=>"49", "comment"=>"", "name"=>"", "updated_at(2i)"=>"4", "created_at(1i)"=>"2009", "updated_at(3i)"=>"9", "created_at(2i)"=>"4", "completed"=>"0", "updated_at(4i)"=>"12", "created_at(3i)"=>"9", "updated_at(5i)"=>"49", "created_at(4i)"=>"12", "created_at(5i)"=>"49", "list_id"=>"5", "completed_at(1i)"=>"2009", "completed_at(2i)"=>"4", "description"=>"", "completed_at(3i)"=>"9", "completed_at(4i)"=>"12"}}
+  [4;35;1mItem Columns (2.9ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mList Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 5) [0m
+Rendering template within layouts/items
+Rendering items/new
+Completed in 178ms (View: 52, DB: 6) | 200 OK [http://localhost/items]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2009-04-09 18:30:07) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"wdjR/nnBRg1djE0lscpFHcAzQKNxDhrx5tbya6cjuTI=", "item"=>{"updated_at(1i)"=>"2009", "position"=>"", "completed_at(5i)"=>"49", "comment"=>"", "name"=>"", "updated_at(2i)"=>"4", "created_at(1i)"=>"2009", "updated_at(3i)"=>"9", "created_at(2i)"=>"4", "completed"=>"0", "updated_at(4i)"=>"12", "created_at(3i)"=>"9", "updated_at(5i)"=>"49", "created_at(4i)"=>"12", "created_at(5i)"=>"49", "list_id"=>"5", "completed_at(1i)"=>"2009", "completed_at(2i)"=>"4", "description"=>"", "completed_at(3i)"=>"9", "completed_at(4i)"=>"12"}}
+  [4;36;1mItem Columns (2.9ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mList Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 5) [0m
+
+ArgumentError (too few arguments):
+  app/controllers/items_controller.rb:57:in `format'
+  app/controllers/items_controller.rb:57:in `create'
+
+Rendered rescues/_trace (86.2ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2009-04-09 18:31:09) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"wdjR/nnBRg1djE0lscpFHcAzQKNxDhrx5tbya6cjuTI=", "item"=>{"updated_at(1i)"=>"2009", "position"=>"", "completed_at(5i)"=>"49", "comment"=>"", "name"=>"", "updated_at(2i)"=>"4", "created_at(1i)"=>"2009", "updated_at(3i)"=>"9", "created_at(2i)"=>"4", "completed"=>"0", "updated_at(4i)"=>"12", "created_at(3i)"=>"9", "updated_at(5i)"=>"49", "created_at(4i)"=>"12", "created_at(5i)"=>"49", "list_id"=>"5", "completed_at(1i)"=>"2009", "completed_at(2i)"=>"4", "description"=>"", "completed_at(3i)"=>"9", "completed_at(4i)"=>"12"}}
+  [4;35;1mItem Columns (3.1ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mList Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.2ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 5) [0m
+Rendering template within layouts/items
+Rendering items/new
+Completed in 99ms (View: 47, DB: 5) | 200 OK [http://localhost/items]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#index (for 127.0.0.1 at 2009-04-09 18:31:37) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering template within layouts/lists
+Rendering lists/index
+  [4;35;1mList Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 40ms (View: 15, DB: 3) | 200 OK [http://localhost/lists]
+  [4;36;1mSQL (30.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (16.8ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-04-10 07:20:32) [GET]
+
+ActionController::RoutingError (No route matches "/everythinglists" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 07:20:40) [GET]
+  [4;36;1mList Load (66.7ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 179ms (View: 41, DB: 69) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#index (for 127.0.0.1 at 2009-04-10 07:21:08) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering template within layouts/lists
+Rendering lists/index
+  [4;35;1mList Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 606ms (View: 582, DB: 2) | 200 OK [http://localhost/Lists]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 07:21:32) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 37ms (View: 13, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 07:22:59) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 37ms (View: 13, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#new (for 127.0.0.1 at 2009-04-10 07:23:12) [GET]
+  [4;36;1mList Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+Rendering template within layouts/lists
+Rendering lists/new
+Completed in 98ms (View: 72, DB: 3) | 200 OK [http://localhost/lists/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#create (for 127.0.0.1 at 2009-04-10 07:23:32) [POST]
+  Parameters: {"list"=>{"updated_at(1i)"=>"2009", "name"=>"Anushka's Plate", "updated_at(2i)"=>"4", "created_at(1i)"=>"2009", "updated_at(3i)"=>"10", "created_at(2i)"=>"4", "updated_at(4i)"=>"01", "created_at(3i)"=>"10", "updated_at(5i)"=>"53", "created_at(4i)"=>"01", "created_at(5i)"=>"53", "description"=>"Tasks on Anushka plate"}, "commit"=>"Create", "authenticity_token"=>"NLPFGnjUKyEHbn2hDbal/mf+CceD3VcjrvJWLSjZ+pU="}
+  [4;35;1mList Columns (33.2ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mList Create (0.4ms)[0m   [0mINSERT INTO `lists` (`name`, `created_at`, `updated_at`, `description`) VALUES('Anushka\'s Plate', '2009-04-10 01:53:00', '2009-04-10 01:53:00', 'Tasks on Anushka plate')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/lists/2
+Completed in 130ms (DB: 34) | 302 Found [http://localhost/lists]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-04-10 07:23:32) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mList Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (40.3ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 2) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+Completed in 106ms (View: 36, DB: 43) | 200 OK [http://localhost/lists/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#index (for 127.0.0.1 at 2009-04-10 07:23:34) [GET]
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` [0m
+Rendering template within layouts/lists
+Rendering lists/index
+  [4;36;1mList Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+Completed in 45ms (View: 20, DB: 3) | 200 OK [http://localhost/lists]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 07:23:37) [GET]
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;36;1mList Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+Completed in 31ms (View: 7, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 07:24:00) [GET]
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;36;1mList Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+Completed in 38ms (View: 13, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:03:56) [GET]
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;36;1mList Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+Completed in 38ms (View: 13, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:04:29) [GET]
+  [4;35;1mList Load (0.4ms)[0m   [0mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;36;1mList Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+Completed in 37ms (View: 13, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:04:41) [GET]
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;36;1mList Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+Completed in 34ms (View: 11, DB: 2) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:04:50) [GET]
+  [4;36;1mList Load (0.5ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 62ms (View: 22, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:04:51) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 27ms (View: 5, DB: 2) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:07:16) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 34ms (View: 11, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:07:17) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 30ms (View: 6, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:08:43) [GET]
+  [4;36;1mList Load (0.6ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 45ms (View: 13, DB: 2) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-04-10 08:08:43) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/everythiinglist.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:08:46) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 28ms (View: 5, DB: 2) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-04-10 08:08:46) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/everythiinglist.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:09:02) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 37ms (View: 14, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:09:21) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 28ms (View: 5, DB: 2) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:09:29) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 28ms (View: 5, DB: 2) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:09:38) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 30ms (View: 6, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:09:39) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 28ms (View: 5, DB: 2) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:09:40) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 30ms (View: 5, DB: 2) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:09:47) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 31ms (View: 7, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:09:48) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 31ms (View: 7, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:10:09) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 28ms (View: 5, DB: 2) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:10:41) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 28ms (View: 5, DB: 2) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:10:53) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 31ms (View: 5, DB: 2) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:11:37) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 28ms (View: 5, DB: 2) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:11:45) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 31ms (View: 7, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:12:04) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 31ms (View: 7, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:13:09) [GET]
+  [4;36;1mList Load (4.2ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (3.5ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 40ms (View: 12, DB: 8) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:14:01) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 28ms (View: 5, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:14:37) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 31ms (View: 7, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:14:54) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 28ms (View: 5, DB: 2) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:15:17) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 31ms (View: 7, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:15:31) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 28ms (View: 5, DB: 2) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:20:26) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (30.8ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 65ms (View: 13, DB: 31) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:20:39) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 35ms (View: 12, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:20:55) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 38ms (View: 13, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:20:56) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 28ms (View: 5, DB: 2) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:20:57) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 28ms (View: 5, DB: 2) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:20:58) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 31ms (View: 7, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:21:03) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 37ms (View: 13, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:21:08) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 35ms (View: 12, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:21:39) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 31ms (View: 7, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:22:14) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 29ms (View: 5, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:22:27) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 31ms (View: 7, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:22:42) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 31ms (View: 7, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:22:56) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 31ms (View: 7, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-10 08:23:23) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 31ms (View: 7, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (134.9ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (26.8ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-04-11 00:08:10) [GET]
+
+NoMethodError (undefined method `in_place_edit_for' for EverythinglistController:Class):
+  app/controllers/everythinglist_controller.rb:2
+
+Rendered rescues/_trace (84.2ms)
+Rendered rescues/_request_and_response (2.9ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-04-11 00:11:50) [GET]
+
+NoMethodError (undefined method `in_place_edit_for' for EverythinglistController:Class):
+  app/controllers/everythinglist_controller.rb:2
+
+Rendered rescues/_trace (137.7ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-04-11 00:11:53) [GET]
+
+NoMethodError (undefined method `in_place_edit_for' for EverythinglistController:Class):
+  app/controllers/everythinglist_controller.rb:2
+
+Rendered rescues/_trace (81.3ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 00:12:03) [GET]
+  [4;36;1mList Load (217.1ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #12 of app/views/everythinglist/index.html.erb:
+9: 	</div>
+10: 	<% for list in @lists -%>
+11: 	<div class="listName">
+12: 		<%= in_place_editor_field :list, 'name' %>
+13: 	  
+14: 	</div>
+15: 	<div class="listDesc">
+
+    app/views/everythinglist/index.html.erb:12
+    app/views/everythinglist/index.html.erb:10:in `each'
+    app/views/everythinglist/index.html.erb:10
+
+Rendered rescues/_trace (161.6ms)
+Rendered rescues/_request_and_response (2.8ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-04-11 00:14:41) [GET]
+
+ArgumentError (wrong number of arguments (1 for 2)):
+  app/controllers/everythinglist_controller.rb:2:in `in_place_edit_for'
+  app/controllers/everythinglist_controller.rb:2
+
+Rendered rescues/_trace (82.4ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-04-11 00:16:42) [GET]
+
+ArgumentError (wrong number of arguments (1 for 2)):
+  app/controllers/everythinglist_controller.rb:2:in `in_place_edit_for'
+  app/controllers/everythinglist_controller.rb:2
+
+Rendered rescues/_trace (146.5ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 00:17:14) [GET]
+  [4;35;1mList Load (0.4ms)[0m   [0mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #13 of app/views/everythinglist/index.html.erb:
+10: 	</div>
+11: 	<% for list in @lists -%>
+12: 	<div class="listName">
+13: 		<%= in_place_editor_field :everythinglist, 'name' %>
+14: 	  
+15: 	</div>
+16: 	<div class="listDesc">
+
+    app/views/everythinglist/index.html.erb:13
+    app/views/everythinglist/index.html.erb:11:in `each'
+    app/views/everythinglist/index.html.erb:11
+
+Rendered rescues/_trace (105.6ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 00:18:52) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+
+ActionView::TemplateError (undefined method `name' for #<Array:0x126ed90>) on line #13 of app/views/everythinglist/index.html.erb:
+10: 	</div>
+11: 	<% for list in @lists -%>
+12: 	<div class="listName">
+13: 		<%= in_place_editor_field :lists, 'name' %>
+14: 	  
+15: 	</div>
+16: 	<div class="listDesc">
+
+    app/views/everythinglist/index.html.erb:13
+    app/views/everythinglist/index.html.erb:11:in `each'
+    app/views/everythinglist/index.html.erb:11
+
+Rendered rescues/_trace (109.6ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 00:21:23) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+
+ActionView::TemplateError (undefined method `name' for #<Array:0x1740904>) on line #13 of app/views/everythinglist/index.html.erb:
+10: 	</div>
+11: 	<% for list in @lists -%>
+12: 	<div class="listName">
+13: 		<%= in_place_editor_field :lists, 'name' %>
+14: 	  
+15: 	</div>
+16: 	<div class="listDesc">
+
+    app/views/everythinglist/index.html.erb:13
+    app/views/everythinglist/index.html.erb:11:in `each'
+    app/views/everythinglist/index.html.erb:11
+
+Rendered rescues/_trace (170.5ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 00:22:06) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+
+ActionView::TemplateError (undefined method `list.description' for #<Array:0x1875c98>) on line #13 of app/views/everythinglist/index.html.erb:
+10: 	</div>
+11: 	<% for list in @lists -%>
+12: 	<div class="listName">
+13: 		<%= in_place_editor_field :lists, 'list.description' %>
+14: 	  
+15: 	</div>
+16: 	<div class="listDesc">
+
+    app/views/everythinglist/index.html.erb:13
+    app/views/everythinglist/index.html.erb:11:in `each'
+    app/views/everythinglist/index.html.erb:11
+
+Rendered rescues/_trace (109.0ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 00:22:41) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+
+ActionView::TemplateError (undefined method `list.name' for #<Array:0x1a24a58>) on line #13 of app/views/everythinglist/index.html.erb:
+10: 	</div>
+11: 	<% for list in @lists -%>
+12: 	<div class="listName">
+13: 		<%= in_place_editor_field :lists, 'list.name' %>
+14: 	  
+15: 	</div>
+16: 	<div class="listDesc">
+
+    app/views/everythinglist/index.html.erb:13
+    app/views/everythinglist/index.html.erb:11:in `each'
+    app/views/everythinglist/index.html.erb:11
+
+Rendered rescues/_trace (108.5ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 00:24:38) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+
+ActionView::TemplateError (undefined method `list.name' for #<Array:0x12f45a8>) on line #14 of app/views/everythinglist/index.html.erb:
+11: 	</div>
+12: 	<% for list in @lists -%>
+13: 	<div class="listName">
+14: 		<%= in_place_editor_field :lists, 'list.name' %>
+15: 	  
+16: 	</div>
+17: 	<div class="listDesc">
+
+    app/views/everythinglist/index.html.erb:14
+    app/views/everythinglist/index.html.erb:12:in `each'
+    app/views/everythinglist/index.html.erb:12
+
+Rendered rescues/_trace (109.3ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 00:24:41) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+
+ActionView::TemplateError (undefined method `list.name' for #<Array:0x174b78c>) on line #14 of app/views/everythinglist/index.html.erb:
+11: 	</div>
+12: 	<% for list in @lists -%>
+13: 	<div class="listName">
+14: 		<%= in_place_editor_field :lists, 'list.name' %>
+15: 	  
+16: 	</div>
+17: 	<div class="listDesc">
+
+    app/views/everythinglist/index.html.erb:14
+    app/views/everythinglist/index.html.erb:12:in `each'
+    app/views/everythinglist/index.html.erb:12
+
+Rendered rescues/_trace (170.9ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 00:24:56) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+
+ActionView::TemplateError (undefined method `name' for #<Array:0x18bbd9c>) on line #14 of app/views/everythinglist/index.html.erb:
+11: 	</div>
+12: 	<% for list in @lists -%>
+13: 	<div class="listName">
+14: 		<%= in_place_editor_field :lists, 'name' %>
+15: 	  
+16: 	</div>
+17: 	<div class="listDesc">
+
+    app/views/everythinglist/index.html.erb:14
+    app/views/everythinglist/index.html.erb:12:in `each'
+    app/views/everythinglist/index.html.erb:12
+
+Rendered rescues/_trace (109.0ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 00:26:13) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+
+ActionView::TemplateError (undefined method `list.name' for #<Array:0x1a35fc4>) on line #14 of app/views/everythinglist/index.html.erb:
+11: 	</div>
+12: 	<% for list in @lists -%>
+13: 	<div class="listName">
+14: 		<%= in_place_editor_field :lists, 'list.name' %>
+15: 	  
+16: 	</div>
+17: 	<div class="listDesc">
+
+    app/views/everythinglist/index.html.erb:14
+    app/views/everythinglist/index.html.erb:12:in `each'
+    app/views/everythinglist/index.html.erb:12
+
+Rendered rescues/_trace (108.9ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 00:26:37) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering everythinglist/index
+  [4;35;1mList Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+
+ActionView::TemplateError (undefined method `list.name' for #<Array:0x12fffe8>) on line #14 of app/views/everythinglist/index.html.erb:
+11: 	</div>
+12: 	<% for listing in @lists -%>
+13: 	<div class="listName">
+14: 		<%= in_place_editor_field :lists, 'list.name' %>
+15: 	  
+16: 	</div>
+17: 	<div class="listDesc">
+
+    app/views/everythinglist/index.html.erb:14
+    app/views/everythinglist/index.html.erb:12:in `each'
+    app/views/everythinglist/index.html.erb:12
+
+Rendered rescues/_trace (109.0ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 00:28:51) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+  [4;35;1mList Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (51.9ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+
+ActionView::TemplateError (undefined method `list.name' for #<List:0x1701344>) on line #14 of app/views/everythinglist/index.html.erb:
+11: 	</div>
+12: 	<% for listing in @lists -%>
+13: 	<div class="listName">
+14: 		<%= in_place_editor_field :list, 'list.name' %>
+15: 	  
+16: 	</div>
+17: 	<div class="listDesc">
+
+    app/views/everythinglist/index.html.erb:14
+    app/views/everythinglist/index.html.erb:12:in `each'
+    app/views/everythinglist/index.html.erb:12
+
+Rendered rescues/_trace (181.3ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 00:28:59) [GET]
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` [0m
+  [4;36;1mList Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.2ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+
+ActionView::TemplateError (undefined local variable or method `list' for #<ActionView::Base:0x28e3814>) on line #18 of app/views/everythinglist/index.html.erb:
+15: 	  
+16: 	</div>
+17: 	<div class="listDesc">
+18: 		<%=h list.description -%>
+19: 	</div>
+20: 	<%end%>
+21: </body>
+
+    app/views/everythinglist/index.html.erb:18
+    app/views/everythinglist/index.html.erb:12:in `each'
+    app/views/everythinglist/index.html.erb:12
+
+Rendered rescues/_trace (103.0ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 00:29:15) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+  [4;35;1mList Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 43ms (View: 16, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-04-11 00:31:56) [GET]
+
+NoMethodError (undefined method `name' for :list:Symbol):
+  app/controllers/everythinglist_controller.rb:2
+
+Rendered rescues/_trace (81.3ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 00:32:53) [GET]
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` [0m
+  [4;36;1mList Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+
+ActionView::TemplateError (undefined method `list.name' for #<Array:0x28ba7c0>) on line #14 of app/views/everythinglist/index.html.erb:
+11: 	</div>
+12: 	<% for listing in @lists -%>
+13: 	<div class="listName">
+14: 		<%= in_place_editor_field :lists, 'list.name' %>
+15: 	  
+16: 	</div>
+17: 	<div class="listDesc">
+
+    app/views/everythinglist/index.html.erb:14
+    app/views/everythinglist/index.html.erb:12:in `each'
+    app/views/everythinglist/index.html.erb:12
+
+Rendered rescues/_trace (108.1ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 00:33:13) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+  [4;35;1mList Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+
+ActionView::TemplateError (undefined method `name' for #<Array:0x277bc38>) on line #14 of app/views/everythinglist/index.html.erb:
+11: 	</div>
+12: 	<% for listing in @lists -%>
+13: 	<div class="listName">
+14: 		<%= in_place_editor_field :lists, 'name' %>
+15: 	  
+16: 	</div>
+17: 	<div class="listDesc">
+
+    app/views/everythinglist/index.html.erb:14
+    app/views/everythinglist/index.html.erb:12:in `each'
+    app/views/everythinglist/index.html.erb:12
+
+Rendered rescues/_trace (186.7ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 00:33:15) [GET]
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` [0m
+  [4;36;1mList Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.2ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+
+ActionView::TemplateError (undefined method `name' for #<Array:0x289d1e8>) on line #14 of app/views/everythinglist/index.html.erb:
+11: 	</div>
+12: 	<% for listing in @lists -%>
+13: 	<div class="listName">
+14: 		<%= in_place_editor_field :lists, 'name' %>
+15: 	  
+16: 	</div>
+17: 	<div class="listDesc">
+
+    app/views/everythinglist/index.html.erb:14
+    app/views/everythinglist/index.html.erb:12:in `each'
+    app/views/everythinglist/index.html.erb:12
+
+Rendered rescues/_trace (108.8ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (30.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (15.4ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 06:54:42) [GET]
+  [4;36;1mList Load (64.8ms)[0m   [0;1mSELECT * FROM `lists` [0m
+  [4;35;1mList Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (3.3ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+
+ActionView::TemplateError (undefined method `name' for #<Array:0x1852928>) on line #18 of app/views/everythinglist/index.html.erb:
+15: 	</div>
+16: 	<% for listing in @lists -%>
+17: 	<div class="listName">
+18: 		<%= in_place_editor_field :lists, 'name' %>
+19: 	  
+20: 	</div>
+21: 	<div class="listDesc">
+
+    app/views/everythinglist/index.html.erb:18
+    app/views/everythinglist/index.html.erb:16:in `each'
+    app/views/everythinglist/index.html.erb:16
+
+Rendered rescues/_trace (163.6ms)
+Rendered rescues/_request_and_response (2.9ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 06:55:03) [GET]
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` [0m
+  [4;36;1mList Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.2ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 39ms (View: 14, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 06:55:38) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+  [4;35;1mList Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 40ms (View: 14, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 06:56:27) [GET]
+  [4;35;1mList Load (0.4ms)[0m   [0mSELECT * FROM `lists` [0m
+  [4;36;1mList Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.2ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 36ms (View: 11, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 06:56:53) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+  [4;35;1mList Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.2ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 38ms (View: 12, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 06:57:17) [GET]
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` [0m
+  [4;36;1mList Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 41ms (View: 14, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 06:57:29) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM `lists` [0m
+  [4;35;1mList Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 40ms (View: 14, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 06:57:31) [GET]
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` [0m
+  [4;36;1mList Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 34ms (View: 7, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 06:58:50) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM `lists` [0m
+  [4;35;1mList Columns (29.8ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 68ms (View: 14, DB: 31) | 200 OK [http://localhost/everythinglist]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 06:59:40) [GET]
+  [4;35;1mList Load (0.4ms)[0m   [0mSELECT * FROM `lists` [0m
+  [4;36;1mList Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.2ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 30ms (View: 5, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:04:28) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+  [4;35;1mList Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 33ms (View: 7, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:04:55) [GET]
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` [0m
+  [4;36;1mList Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.2ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 30ms (View: 5, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:06:44) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+  [4;35;1mList Columns (63.9ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (4.2ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 101ms (View: 9, DB: 69) | 200 OK [http://localhost/everythinglist]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:09:35) [GET]
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` [0m
+  [4;36;1mList Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 90ms (View: 5, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:10:05) [GET]
+  [4;36;1mList Load (3.1ms)[0m   [0;1mSELECT * FROM `lists` [0m
+  [4;35;1mList Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 35ms (View: 6, DB: 5) | 200 OK [http://localhost/everythinglist]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:10:26) [GET]
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` [0m
+  [4;36;1mList Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 34ms (View: 7, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:10:42) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+  [4;35;1mList Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 33ms (View: 6, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:11:09) [GET]
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` [0m
+  [4;36;1mList Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.2ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 29ms (View: 5, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:11:18) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM `lists` [0m
+  [4;35;1mList Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 33ms (View: 6, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:11:49) [GET]
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` [0m
+  [4;36;1mList Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.2ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 29ms (View: 5, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:11:50) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM `lists` [0m
+  [4;35;1mList Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 89ms (View: 5, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:11:51) [GET]
+  [4;35;1mList Load (0.4ms)[0m   [0mSELECT * FROM `lists` [0m
+  [4;36;1mList Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 34ms (View: 6, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:11:59) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+  [4;35;1mList Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 33ms (View: 7, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:12:00) [GET]
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` [0m
+  [4;36;1mList Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.2ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 30ms (View: 5, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:12:06) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+  [4;35;1mList Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.2ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 30ms (View: 5, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:12:07) [GET]
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` [0m
+  [4;36;1mList Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 33ms (View: 7, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:12:11) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+  [4;35;1mList Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.2ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 30ms (View: 5, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:12:15) [GET]
+  [4;35;1mList Load (0.4ms)[0m   [0mSELECT * FROM `lists` [0m
+  [4;36;1mList Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.2ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 85ms (View: 5, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:12:33) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM `lists` [0m
+  [4;35;1mList Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.2ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 30ms (View: 5, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:13:20) [GET]
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` [0m
+  [4;36;1mList Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 33ms (View: 7, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:22:19) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+  [4;35;1mList Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 40ms (View: 14, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:22:44) [GET]
+  [4;35;1mList Load (0.4ms)[0m   [0mSELECT * FROM `lists` [0m
+  [4;36;1mList Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 37ms (View: 12, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:27:27) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+  [4;35;1mList Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 42ms (View: 15, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:27:42) [GET]
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` [0m
+  [4;36;1mList Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 42ms (View: 15, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:27:56) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+  [4;35;1mList Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 42ms (View: 15, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:28:04) [GET]
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` [0m
+  [4;36;1mList Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 42ms (View: 14, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:28:21) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+  [4;35;1mList Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 40ms (View: 14, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;35;1mSQL (0.3ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:28:28) [GET]
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` [0m
+  [4;36;1mList Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 33ms (View: 6, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:28:34) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+  [4;35;1mList Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 33ms (View: 7, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:28:41) [GET]
+  [4;35;1mList Load (0.7ms)[0m   [0mSELECT * FROM `lists` [0m
+  [4;36;1mList Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (1.3ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 36ms (View: 6, DB: 4) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:29:22) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM `lists` [0m
+  [4;35;1mList Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 34ms (View: 7, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:30:17) [GET]
+  [4;35;1mList Load (0.4ms)[0m   [0mSELECT * FROM `lists` [0m
+  [4;36;1mList Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 34ms (View: 7, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:30:25) [GET]
+  [4;36;1mList Load (0.5ms)[0m   [0;1mSELECT * FROM `lists` [0m
+  [4;35;1mList Columns (2.8ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (2.4ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 34ms (View: 5, DB: 6) | 200 OK [http://localhost/everythinglist]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:30:35) [GET]
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` [0m
+  [4;36;1mList Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.2ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 30ms (View: 5, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:30:36) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM `lists` [0m
+  [4;35;1mList Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.2ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 30ms (View: 5, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:30:57) [GET]
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` [0m
+  [4;36;1mList Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.2ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 30ms (View: 5, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:31:18) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+  [4;35;1mList Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 35ms (View: 8, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:31:27) [GET]
+  [4;35;1mList Load (0.4ms)[0m   [0mSELECT * FROM `lists` [0m
+  [4;36;1mList Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 33ms (View: 6, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:31:38) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM `lists` [0m
+  [4;35;1mList Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.2ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 29ms (View: 5, DB: 2) | 200 OK [http://localhost/everythinglist]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:31:57) [GET]
+  [4;35;1mList Load (0.4ms)[0m   [0mSELECT * FROM `lists` [0m
+  [4;36;1mList Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.2ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 30ms (View: 5, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:32:16) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM `lists` [0m
+  [4;35;1mList Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 33ms (View: 7, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:33:13) [GET]
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` [0m
+  [4;36;1mList Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 34ms (View: 7, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:33:25) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+  [4;35;1mList Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.2ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 29ms (View: 5, DB: 2) | 200 OK [http://localhost/everythinglist]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:33:43) [GET]
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` [0m
+  [4;36;1mList Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 33ms (View: 7, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:34:01) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+  [4;35;1mList Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 34ms (View: 7, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:34:14) [GET]
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` [0m
+  [4;36;1mList Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 34ms (View: 7, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:36:26) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM `lists` [0m
+  [4;35;1mList Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 41ms (View: 15, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:36:55) [GET]
+  [4;35;1mList Load (0.4ms)[0m   [0mSELECT * FROM `lists` [0m
+  [4;36;1mList Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.4ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 41ms (View: 14, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:37:47) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+  [4;35;1mList Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 42ms (View: 13, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:39:42) [GET]
+  [4;35;1mList Load (0.4ms)[0m   [0mSELECT * FROM `lists` [0m
+  [4;36;1mList Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 38ms (View: 12, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:40:24) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM `lists` [0m
+  [4;35;1mList Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 42ms (View: 15, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:40:25) [GET]
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` [0m
+  [4;36;1mList Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.2ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 30ms (View: 5, DB: 3) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:40:52) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM `lists` [0m
+  [4;35;1mList Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 40ms (View: 13, DB: 4) | 200 OK [http://localhost/everythinglist]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:41:14) [GET]
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM `lists` [0m
+  [4;36;1mList Columns (805.8ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.7ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 844ms (View: 14, DB: 807) | 200 OK [http://localhost/everythinglist]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EverythinglistController#index (for 127.0.0.1 at 2009-04-11 07:41:32) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM `lists` [0m
+  [4;35;1mList Columns (39.3ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.6ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering everythinglist/index
+Completed in 72ms (View: 7, DB: 41) | 200 OK [http://localhost/everythinglist]

@@ -1,0 +1,28 @@
+<html>
+<head>
+	<title>Everything Lists</title>
+	<%= stylesheet_link_tag 'everythinglist' %>
+	<%= javascript_include_tag :defaults %> 
+	
+</head>
+<body>
+	<div id="everythingList">
+		Everything List
+	</div>
+	<br/>
+    <hr class="hr2" />
+<br/><br/>
+	<div id="textbox">
+		<input type="text" name="createlist" value="Create List" class="textbox" onfocus="this.value==this.defaultValue?this.value='':null" >
+	</div>
+	<% for listing in @lists -%>
+	<div class="listName">
+		<%=h listing.description -%>
+	  
+	</div>
+	<div class="listDesc">
+		<%=h listing.description -%>
+	</div>
+	<%end%>
+</body>
+</html>
