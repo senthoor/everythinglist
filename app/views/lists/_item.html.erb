@@ -1,8 +1,7 @@
 <div class="items">
 	<% fields_for "list[item_attributes][]", item do |item_form| %>
-		Task: <%=item_form.text_field :name, :size =>52%><br/>
+		Task: <%=item_form.text_field :name, :size =>52%>
 		Task Description: <%=item_form.text_area :description, :rows => 3, :cols => 52%>
 	    <%= link_to_function image_tag('delete_item.png'), "$(this).up('.items').remove()" %>
-		<br/>
 	<% end %>
 </div>
