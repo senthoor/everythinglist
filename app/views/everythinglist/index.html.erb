@@ -1,28 +1,16 @@
-<html>
-<head>
-	<title>Everything Lists</title>
-	<%= stylesheet_link_tag 'everythinglist' %>
-	<%= javascript_include_tag :defaults %> 
+
+<div id="textbox">
+	<input type="text" id="searchbox" value="type search here" class="searchbox" onfocus="this.value==this.defaultValue?this.value='':null">
+</div>
+
+<div id="createlist">
+	<%=link_to "Create List", {:controller => "lists", :action => "new"} %>			
+</div>
+
+<div id="home-lists">
+
+  <% for list in @lists %>
+    <%= link_to list.name + "<span>#{list.description}</span>" , {:controller => 'lists', :action => 'show', :id => list.id}, :class => 'tooltip' %><br/>
+  <% end %>
 	
-</head>
-<body>
-	<div id="everythingList">
-		Everything List
-	</div>
-	<br/>
-    <hr class="hr2" />
-<br/><br/>
-	<div id="textbox">
-		<input type="text" name="createlist" value="Create List" class="textbox" onfocus="this.value==this.defaultValue?this.value='':null" >
-	</div>
-	<% for listing in @lists -%>
-	<div class="listName">
-		<%=h listing.description -%>
-	  
-	</div>
-	<div class="listDesc">
-		<%=h listing.description -%>
-	</div>
-	<%end%>
-</body>
-</html>
+</div>

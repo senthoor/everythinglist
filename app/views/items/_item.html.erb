@@ -1,0 +1,10 @@
+<% if item_counter == '[item]' -%>
+<li id="item" repeat="template" repeat-start="0">
+<% else -%>
+<li repeat="<%= item_counter %>">
+<% end -%>
+  <div>
+    <%= text_field_tag "items[#{item_counter}][name]", item.name, :class => 'textbox' %>
+	<%= link_to image_tag("delete.png", :border=>0), :action => 'detele', :id => item.id %>
+  </div>
+</li>

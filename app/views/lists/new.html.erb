@@ -5,20 +5,17 @@
 
   <p>
     <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :size => 52 %>
   </p>
   <p>
     <%= f.label :description %><br />
-    <%= f.text_area :description %>
+    <%= f.text_area :description, :cols => 50, :rows => 3 %>
   </p>
-  <p>
-    <%= f.label :created_at %><br />
-    <%= f.datetime_select :created_at %>
-  </p>
-  <p>
-    <%= f.label :updated_at %><br />
-    <%= f.datetime_select :updated_at %>
-  </p>
+	<div id="items">
+		<%= render :partial => 'item', :collection => @list.items %>
+	</div>	
+	<%= add_task_link "Add List Item"%>
+
   <p>
     <%= f.submit 'Create' %>
   </p>

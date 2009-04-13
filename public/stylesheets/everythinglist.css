@@ -34,8 +34,21 @@ p:first-letter{
 }
 
 /* Text Box with Background Color: */
-.textbox {
+.searchbox {
     border: 2px solid #424242;
+	font-family: times, Times New Roman, times-roman, georgia, serif;
+	font-size: 30px;
+	font-weight: bold;
+	font-variant: small-caps;
+	letter-spacing:0.2em;
+	height: 40px;
+    width: 40%;
+    padding-top:2px;
+	margin-left: 30%;
+}
+
+.textbox {
+    border: 0px solid #424242;
 	font-family: times, Times New Roman, times-roman, georgia, serif;
 	font-size: 20px;
 	font-weight: bold;
@@ -51,3 +64,43 @@ hr.hr2 {
   background-color: #424242;
   height: 0.5px;
 }
+
+/* Home Page Create List Link */
+#createlist a:link, #createlist a:visited {
+	font-family: times, Times New Roman, times-roman, georgia, serif;
+	font-size: 20px;
+	width: 40%;
+	color: #424242;
+	font-variant: small-caps;	
+	text-align: center;
+	margin-left: 30%;
+}
+
+#createlist  a:hover {
+	font-family: times, Times New Roman, times-roman, georgia, serif;
+	font-size: 20px;
+	width: 40%;
+	font-weight: bold;
+	font-variant: small-caps;	
+	text-align: center;
+	margin-left: 30%;
+}
+
+/* Tool Tip Section */
+a.tooltip{
+    position:relative; /*this is the key*/
+    z-index:24; background-color:#fff;
+    color:#000;
+    text-decoration:none}
+
+a.tooltip:hover{z-index:25; background-color:#F0F0F0}
+
+a.tooltip span{display: none}
+
+a.tooltip:hover span{ /*the span will display just on :hover state*/
+    display:block;
+    position:absolute;
+    top:2em; left:2em; width:15em;
+    border:2px solid #F0F0F0;
+    background-color:#fff; color:#424242;
+    text-align: center}

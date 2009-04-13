@@ -25,7 +25,7 @@ class ListsController < ApplicationController
   # GET /lists/new.xml
   def new
     @list = List.new
-
+    2.times {@list.items.build}
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @list }
