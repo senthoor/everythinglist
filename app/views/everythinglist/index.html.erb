@@ -9,22 +9,3 @@
 	<br>
 	<br>
 </p>
-<div id="home-lists">
-<table id='one-column-emphasis' summary="recently added lists">
-
-		<th COLSPAN='2'>
-			Recently Created Lists
-		</th>
-
-	<% for list in @lists %>
-		<tr>
-			<td width="10%">
-				<%=image_tag('note.png')%>
-			</td>
-			<td>
-				<%= link_to list.name + "<span>#{list.description}</span>" , {:controller => 'lists', :action => 'show', :id => list.id}, :class => 'tooltip' %><br>
-			</td>
-		</tr>
-	<% end %>
-</table>
-</div>
