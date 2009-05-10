@@ -1,6 +1,9 @@
-<div id="textbox">
-	<input type="text" id="searchbox" name="search" value="type search here" class="searchbox" onfocus="this.value==this.defaultValue?this.value='':null">
-</div>
+<% form_tag '/lists',  :method => 'get' do %>
+	<div id="textbox">
+		<input type="text" id="searchbox" name="search" value="type search here" class="searchbox" onfocus="this.value==this.defaultValue?this.value='':null">
+		<input type="submit" style="position: absolute; left: -9999px"/>
+	</div>
+<% end %>
 <div id="createlist">
 	<%=link_to "Create List", {:controller => "lists", :action => "new"} %>
 </div>

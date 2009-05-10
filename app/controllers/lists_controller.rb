@@ -1,8 +1,9 @@
 class ListsController < ApplicationController
   # GET /lists
   # GET /lists.xml
+  
   def index
-    @lists = List.all
+    @lists = List.search(params[:search])
 
     respond_to do |format|
       format.html # index.html.erb
